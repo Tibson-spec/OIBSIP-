@@ -30,10 +30,10 @@ The primary goal of this project is to extract meaningful insights from retail s
 
 ### **3. Tools and Technologies**
 - **SQL Server**: Data extraction, transformation, and cleaning.
+- **SQL Server**: Data Exploratory Analysis
 - **DAX (Data Analysis Expressions)**: Advanced calculations and aggregations for Power BI visuals.
 - **Power BI**: Interactive dashboards and visualizations for insights.
-- **Microsoft Excel** (optional): For exporting correlation matrices or additional processing.
-- **Python** (optional): For advanced statistical analysis.
+
 
 ---
 
@@ -77,7 +77,7 @@ Calculated key statistics using SQL and DAX:
 - Designed interactive dashboards in Power BI:
   - **Bar Charts**: Sales distribution by demographics and product categories.
   - **Heatmaps**: Correlations between age, spending, and product preferences.
-  - **Tree Maps**: Proportion of sales by product categories.
+  - **Donut Chart**: Proportion of sales by product categories.
 
 #### **Step 7: Recommendations**
 - Based on the analysis, actionable recommendations were provided for marketing, inventory, and operational improvements.
@@ -90,8 +90,8 @@ Calculated key statistics using SQL and DAX:
    - Males showed a preference for electronics, while females leaned toward fashion.
 
 2. **Product Performance**:
-   - The top-performing product category was "Accessories," followed by "Electronics."
-   - Seasonal trends showed higher sales during Q4 (holiday season).
+   - The top-performing product category was "Electronics," followed by "Clothing."
+   - Seasonal trends showed higher sales during Q4 (holiday season) and Q2.
 
 3. **Spending Patterns**:
    - Significant correlation between age and spending, with younger demographics spending less per transaction.
@@ -100,12 +100,12 @@ Calculated key statistics using SQL and DAX:
 
 ### **6. Recommendations**
 - **Targeted Marketing**:
-  - Focus on the 25-34 age group with digital campaigns.
+  - Focus on the 25-34 age group with digital and marketing campaigns.
   - Create gender-specific bundles for popular product categories.
 
 - **Inventory Optimization**:
   - Increase stock for high-demand products during Q4.
-  - Phase out underperforming products or offer discounts.
+  - Phase out underperforming products or offer discounts offer.
 
 - **Customer Engagement**:
   - Introduce loyalty programs to retain high-value customers.
@@ -115,8 +115,9 @@ Calculated key statistics using SQL and DAX:
 
 ### **7. Visual Insights**
 - **Heatmap**: Displayed correlations between age and spending.
-- **Bar Plot**: Sales distribution across demographics and categories.
-- **Tree Map**: Highlighted the contribution of product categories to total sales.
+- **Stacked Bar chart**: Sales distribution across demographics.
+-   Donut Chart: Highlighted the contribution of product categories to total sales.
+-   line chart: depicts monthly,quarterly and annualy sales across product category
 
 ![Screenshot of Power BI Dashboard](#) *(Add screenshots of your Power BI visuals here)*
 
@@ -124,7 +125,7 @@ Calculated key statistics using SQL and DAX:
 
 ### **8. Challenges and Learnings**
 - Data cleaning and formatting required significant effort to handle missing values and inconsistent entries.
-- DAX formulas were instrumental in creating calculated fields like `Age Group`.
+- DAX formulas were instrumental in creating calculated fields like `Age Group` and statistical field.
 - Power BI's interactivity helped communicate insights effectively.
 
 ---
