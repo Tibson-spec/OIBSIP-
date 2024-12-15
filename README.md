@@ -130,12 +130,13 @@ Calculated key statistics using SQL and DAX:
 ![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/total%20sales%20by%20month.PNG?raw=true)
 
 
-### Overview Dashboard
-![Click here for Power BI Dashboard](https://github.com/Tibson-spec/OIBSIP-/blob/main/retail_sale_dataset%20pdf%20pic.pdf)
-
+### Overview Insights and Trend Analysis Dashboard
 ![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/insight%20dashboard.PNG?raw=true)
 
 ![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/trend%20analysis.PNG?raw=true)
+
+![Click here for PDF Dashboard](https://github.com/Tibson-spec/OIBSIP-/blob/main/retail_sale_dataset%20pdf%20pic.pdf)
+
 
 ---
 
