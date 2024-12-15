@@ -153,10 +153,11 @@ This project showcases the power of data-driven decision-making in retail. By le
 ---
 
 ### **10. Repository Content (GitHub)**
-- **SQL Scripts**:
+- **SQL Scripts**: [Click here](https://github.com/Tibson-spec/OIBSIP-/blob/main/retail_sales_datasets%20EDA(Task%201)_.sql)
   - Data Loading
   - Cleaning
   - Statistical Analysis
+
 - **Power BI Dashboard**:
   - `.pbix` file for interactive visualizations.
 - **Documentation**:
@@ -165,4 +166,4 @@ This project showcases the power of data-driven decision-making in retail. By le
 ---
 
 ### **GitHub Repository**
-**[Retail Sales EDA Project](#)** *(Insert your GitHub repository link here)*
+**[Retail Sales EDA Project](https://github.com/Tibson-spec/OIBSIP-)** 
