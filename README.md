@@ -86,7 +86,7 @@ Calculated key statistics using SQL and DAX:
 
 ### **5. Key Findings**
 1. **Demographic Insights**:
-   - Customers aged **25-34** contributed the most to sales.
+   - Customers aged **45-54** contributed the most to sales.
    - Males showed a preference for electronics, while females leaned toward fashion.
 
 2. **Product Performance**:
@@ -100,7 +100,7 @@ Calculated key statistics using SQL and DAX:
 
 ### **6. Recommendations**
 - **Targeted Marketing**:
-  - Focus on the 25-34 age group with digital and marketing campaigns.
+  - Focus on the 45-54 age group with digital and marketing campaigns.
   - Create gender-specific bundles for popular product categories.
 
 - **Inventory Optimization**:
