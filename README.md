@@ -119,7 +119,7 @@ Calculated key statistics using SQL and DAX:
 -   Donut Chart: Highlighted the contribution of product categories to total sales.
 -   line chart: depicts monthly,quarterly and annualy sales across product category
 
-![Screenshot of Power BI Dashboard](#) *(Add screenshots of your Power BI visuals here)*
+![Screenshot of Power BI Dashboard](https://github.com/Tibson-spec/OIBSIP-/blob/main/retail_sale_dataset%20pdf%20pic.pdf)
 
 ---
 
