@@ -118,10 +118,11 @@ Calculated key statistics using SQL and DAX:
 ![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/heatmap.PNG?raw=true)
 
 - **Stacked Bar chart**: Sales distribution across demographics.
--   Donut Chart: Highlighted the contribution of product categories to total sales.
--   line chart: depicts monthly,quarterly and annualy sales across product category
 ![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/salesby%20demographics%20and%20product%20cat.PNG?raw=true)
+-   Donut Chart: Highlighted the contribution of product categories to total sales.
 
+-   line chart: depicts monthly,quarterly and annualy sales across product category
+![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/total%20sales%20by%20month.PNG?raw=true)
 
 ### Overview Dashboard
 ![Click here for Power BI Dashboard](https://github.com/Tibson-spec/OIBSIP-/blob/main/retail_sale_dataset%20pdf%20pic.pdf)
