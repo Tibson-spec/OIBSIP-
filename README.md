@@ -545,7 +545,7 @@ Data was visualized using **Power BI** to create dashboards highlighting:
 ![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/cus%20seg%20dasboard.PNG?raw=true)
 
 3. Behavioral patterns.
-![Image Alt](
+![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/Customer%20behav.PNG?raw=true)
 
 4. RFM score distribution and trends.
 ![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/rfm%20analysis.PNG?raw=true)
