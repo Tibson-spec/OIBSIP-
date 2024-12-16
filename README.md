@@ -465,7 +465,7 @@ SET
                     ELSE 1
                  END);
 ```
-- **Customer Segmentation**: Classified customers into segments like VIP, Lost Customers, At-Risk, Potential Loyalists, Loyal Customers.
+- Customer Segmentation**: Classified customers into segments like VIP, Lost Customers, At-Risk, Potential Loyalists, Loyal Customers.
 ```
 -- Assigning RFM_Segment based on RFMScore
 UPDATE Customer_RFM_Analysis
@@ -487,7 +487,7 @@ SET
                     ELSE 'VIP'
                   END;
 ```
-### **4. RFM Analysis to gain insights
+### 4. RFM Analysis to gain insights
 ```
 --Analyzing the distribution and size of each RFM segment.
 SELECT RFM_Segment, 
@@ -545,6 +545,7 @@ Data was visualized using **Power BI** to create dashboards highlighting:
 ![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/cus%20seg%20dasboard.PNG?raw=true)
 
 3. Behavioral patterns.
+![Image Alt](
 
 4. RFM score distribution and trends.
 ![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/rfm%20analysis.PNG?raw=true)
