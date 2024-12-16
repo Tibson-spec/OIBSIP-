@@ -332,7 +332,7 @@ WHERE CustomerID IN (
     WHERE RowNum > 1
 );
 ```
-### **3. DESCRIPTIVE STATISTICS
+### 3. DESCRIPTIVE STATISTICS
 --Basics Descriptive statistic
 -- Average, Min, Max
 ```
@@ -539,9 +539,15 @@ ORDER BY RFMScore;
 ### **4. Visualization and Insights**
 Data was visualized using **Power BI** to create dashboards highlighting:
 1. Demographic insights.
+![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/demographic.PNG?raw=true)
+
 2. Customer segmentation analysis.
+![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/cus%20seg%20dasboard.PNG?raw=true)
+
 3. Behavioral patterns.
+
 4. RFM score distribution and trends.
+![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/rfm%20analysis.PNG?raw=true)
 
 ---
 
