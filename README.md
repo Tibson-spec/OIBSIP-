@@ -1,3 +1,4 @@
+## Task 1
 ## **Retail Sales Data Exploration Project**
 
 ### **1. Problem Statement**
@@ -167,3 +168,184 @@ This project showcases the power of data-driven decision-making in retail. By le
 
 ### **GitHub Repository**
 **[Retail Sales EDA Project](https://github.com/Tibson-spec/OIBSIP-)** 
+
+
+
+# Task 2
+# **Customer Segmentation Analysis and Behavior Patterns Documentation**
+
+## **Table of Contents**
+
+1. [Project Overview](#project-overview)
+    - [Problem Statement](#problem-statement)
+    - [Goals](#goals)
+    - [Key Challenges](#key-challenges)
+2. [Approach and Methodology](#approach-and-methodology)
+    - [1. Data Preparation](#1-data-preparation)
+    - [2. Data Cleaning](#2-data-cleaning)
+    - [3. RFM Scoring and Customer Segmentation](#3-rfm-scoring-and-customer-segmentation)
+    - [4. Visualization and Insights](#4-visualization-and-insights)
+3. [Key Insights](#key-insights)
+    - [Demographic Insights](#demographic-insights)
+    - [Customer Segmentation Analysis](#customer-segmentation-analysis)
+    - [Behavior Patterns](#behavior-patterns)
+4. [Actionable Recommendations](#actionable-recommendations)
+5. [How to Run This Project](#how-to-run-this-project)
+6. [File Structure](#file-structure)
+7. [Conclusion](#conclusion)
+
+---
+
+## **Project Overview**
+
+### **Problem Statement**
+Businesses often struggle to understand their customer base effectively. By using data-driven techniques like **Recency, Frequency, and Monetary (RFM)** analysis, we aim to segment customers, analyze behavior patterns, and derive actionable insights for targeted marketing and better customer engagement.
+
+### **Goals**
+1. Segment customers based on purchasing behavior using the RFM model.
+2. Generate meaningful visualizations to understand customer trends and patterns.
+3. Identify priority customer groups (e.g., VIPs, At-Risk customers) for tailored marketing campaigns.
+4. Provide actionable recommendations to improve retention, reactivation, and overall customer experience.
+
+### **Key Challenges**
+- Aggregating data from various sources.
+- Cleaning data to ensure accuracy and consistency.
+- Balancing engagement strategies across diverse customer segments.
+- Visualizing large datasets in a clear and meaningful way.
+
+---
+
+## **Approach and Methodology**
+
+### **1. Data Preparation**
+We aggregated customer purchase and demographic data from the database using SQL queries. Key metrics like **Recency**, **Frequency**, and **Monetary** values were computed for analysis.
+
+**Example SQL Query**:
+
+```sql
+SELECT 
+    ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS CustomerID,
+    Recency,
+    (NumWebPurchases + NumCatalogPurchases + NumStorePurchases + NumDealsPurchases) AS TotalFrequency,
+    (MntWines + MntFruits + MntMeatProducts + MntFishProducts + MntSweetProducts + MntGoldProds) AS TotalMonetary,
+    Income,
+    Age
+INTO Customer_RFM_Analysis
+FROM Customer_Segmentation;
+```
+
+### **2. Data Cleaning**
+- **Missing Values**: Checked for and handled missing values in key metrics.
+- **Duplicates**: Removed duplicate entries to ensure data integrity.
+
+**SQL for Removing Duplicates**:
+
+```sql
+WITH DuplicateRanked AS (
+    SELECT *, ROW_NUMBER() OVER (PARTITION BY Recency, TotalFrequency, TotalMonetary ORDER BY CustomerID) AS RowNum
+    FROM Customer_RFM_Analysis
+)
+DELETE FROM Customer_RFM_Analysis
+WHERE CustomerID IN (SELECT CustomerID FROM DuplicateRanked WHERE RowNum > 1);
+```
+
+### **3. RFM Scoring and Customer Segmentation**
+- **RFM Scoring**: Scored customers on Recency, Frequency, and Monetary values (1–5 scale).
+- **Customer Segmentation**: Classified customers into segments like VIPs, At-Risk, and Loyal Customers.
+
+**RFM Scoring SQL**:
+
+```sql
+UPDATE Customer_RFM_Analysis
+SET 
+    RecencyScore = CASE WHEN Recency <= 30 THEN 5 WHEN Recency <= 60 THEN 4 ELSE 1 END,
+    FrequencyScore = CASE WHEN TotalFrequency >= 10 THEN 5 WHEN TotalFrequency >= 6 THEN 4 ELSE 1 END,
+    MonetaryScore = CASE WHEN TotalMonetary >= 1000 THEN 5 WHEN TotalMonetary >= 500 THEN 4 ELSE 1 END;
+```
+
+### **4. Visualization and Insights**
+Data was visualized using **Power BI** to create dashboards highlighting:
+1. Demographic insights.
+2. Customer segmentation analysis.
+3. Behavioral patterns.
+4. RFM score distribution and trends.
+
+---
+
+## **Key Insights**
+
+### **Demographic Insights**
+- **Education**: Customers with advanced education levels (e.g., PhDs) spend significantly more.
+- **Marital Status**: Married customers dominate purchases; widowed/divorced segments are underperforming.
+- **Age**: Middle-aged customers (30–50 years) are the most active spenders.
+
+### **Customer Segmentation Analysis**
+- **VIPs**: High-value, frequent buyers with recent activity.
+- **At-Risk**: High-value buyers with declining engagement.
+- **Lost Customers**: Previously active customers who are no longer engaged.
+
+### **Behavior Patterns**
+- **Recency Trends**: VIP customers purchase frequently, while Lost Customers need reactivation campaigns.
+- **Spending Trends**: Younger customers have lower average spending compared to middle-aged groups.
+
+---
+
+## **Actionable Recommendations**
+1. **Engage At-Risk and Lost Customers**:
+   - Reactivation campaigns using personalized offers or discounts.
+   - Time-sensitive promotions to boost urgency.
+
+2. **Retain Loyal and VIP Customers**:
+   - Offer loyalty programs and exclusive perks.
+   - Prioritize these segments for early access to new products.
+
+3. **Target Potential Loyalists**:
+   - Convert them into VIPs by incentivizing repeat purchases.
+   - Use targeted communication to highlight the value of loyalty.
+
+4. **Focus on Younger and Basic-Education Groups**:
+   - Create affordable, value-based products to attract these demographics.
+
+5. **Monitor Complaints and Improve Service**:
+   - Address recurring issues in customer feedback to improve retention.
+
+---
+
+## **How to Run This Project**
+
+1. **Prerequisites**:
+   - SQL environment to execute queries.
+   - Power BI for creating visualizations.
+
+2. **Steps**:
+   - Load the dataset into your SQL database.
+   - Execute the provided SQL scripts for data preparation, cleaning, and segmentation.
+   - Use the output table (`Customer_RFM_Analysis`) as the data source for Power BI.
+   - Build and customize dashboards using the visual templates provided.
+
+---
+
+## **File Structure**
+
+```
+Customer-Segmentation-Analysis/
+│
+├── README.md                # Overview and project documentation
+├── scripts/
+│   ├── data_preparation.sql
+│   ├── data_cleaning.sql
+│   ├── rfm_scoring.sql
+│   └── segmentation_analysis.sql
+├── data/
+│   └── customer_segmentation.csv  # Placeholder for input data
+└── insights/
+    ├── power_bi_dashboard.pbix   # Power BI dashboard file
+    └── visual_screenshots/       # Dashboard images and analysis
+```
+
+---
+
+## **Conclusion**
+This project demonstrates the value of RFM analysis and customer segmentation in understanding customer behavior and driving business growth. By implementing the recommendations provided, businesses can enhance customer retention, improve engagement, and maximize revenue potential.
+
+
