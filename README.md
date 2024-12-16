@@ -631,9 +631,17 @@ Customer-Segmentation-Analysis/
     └── visual_screenshots/       # Dashboard images and analysis
 ```
 
-Files
-sql script:
-power BI files:
+### Repository Content (GitHub)**
+- **SQL Scripts**: [Click here](https://github.com/Tibson-spec/OIBSIP-/blob/main/Customer%20Segmentation%20Analysis.sql)
+- **Power BI Dashboard**:
+  - `.pbix` file for interactive visualizations.
+- **Documentation**:
+  - Detailed report and insights.
+
+---
+
+### **GitHub Repository**
+**[Retail Sales EDA Project](https://github.com/Tibson-spec/OIBSIP-)** 
 
 ---
 
