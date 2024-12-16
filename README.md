@@ -568,7 +568,7 @@ Data was visualized using **Power BI** to create dashboards highlighting:
 
 ### **Behavior Patterns**
 - **Recency Trends**: VIP customers purchase frequently, while Lost Customers need reactivation campaigns.
-- **Spending Trends**: Younger customers have lower average spending compared to middle-aged groups.
+- **Spending Trends**: Younger customers have lower Total spending compared to middle-aged groups.
 
 ---
 
@@ -578,18 +578,24 @@ Data was visualized using **Power BI** to create dashboards highlighting:
    - Time-sensitive promotions to boost urgency.
 
 2. **Retain Loyal and VIP Customers**:
-   - Offer loyalty programs and exclusive perks.
-   - Prioritize these segments for early access to new products.
+   - Offer loyalty programs and exclusive perks to make them feel impirtant.
+   - Focus on these segments for early access to new products.
 
 3. **Target Potential Loyalists**:
    - Convert them into VIPs by incentivizing repeat purchases.
-   - Use targeted communication to highlight the value of loyalty.
+   - Use targeted communication and campaigns to highlight the value of loyalty.
 
 4. **Focus on Younger and Basic-Education Groups**:
    - Create affordable, value-based products to attract these demographics.
+   - Develop family oriented offers for married customers
 
 5. **Monitor Complaints and Improve Service**:
    - Address recurring issues in customer feedback to improve retention.
+
+6.  Target graduates and phd holder with:
+   - Focus on professional bundles and exclusive courses
+   - implement tech based promotions
+   
 
 ---
 
@@ -624,6 +630,10 @@ Customer-Segmentation-Analysis/
     ├── power_bi_dashboard.pbix   # Power BI dashboard file
     └── visual_screenshots/       # Dashboard images and analysis
 ```
+
+Files
+sql script:
+power BI files:
 
 ---
 
