@@ -557,12 +557,14 @@ Data was visualized using **Power BI** to create dashboards highlighting:
 ### **Demographic Insights**
 - **Education**: Customers with advanced education levels (e.g., PhDs) spend significantly more.
 - **Marital Status**: Married customers dominate purchases; widowed/divorced segments are underperforming.
-- **Age**: Middle-aged customers (30–50 years) are the most active spenders.
+- **Age**: Senior customers age (50 above years) are the most active spenders.
 
 ### **Customer Segmentation Analysis**
 - **VIPs**: High-value, frequent buyers with recent activity.
-- **At-Risk**: High-value buyers with declining engagement.
 - **Lost Customers**: Previously active customers who are no longer engaged.
+- Loyal Customers: Consistent purchases with strong spending habits.
+- Potential Loyalists: Recently active customers with moderate spending.
+- At-Risk: Decreasing engagement; lower recency and frequency.
 
 ### **Behavior Patterns**
 - **Recency Trends**: VIP customers purchase frequently, while Lost Customers need reactivation campaigns.
