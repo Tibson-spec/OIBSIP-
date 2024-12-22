@@ -746,7 +746,7 @@ Here's the content without markdown formatting so you can directly copy and past
 
 
 # Task 3
-# Cleaning Airbnb NYC 2019 Dataset**
+# Cleaning Airbnb NYC 2019 Dataset
 
 ## **Description:**
 
@@ -790,7 +790,7 @@ Tools Used:
      - Removed rows where `price > 1000` and cap where `minimum_nights > 365`.
 
 3. **Results:**
-   - Final dataset saved as AB_NYC_2019_cleaned.csv.
+   - Final dataset saved as AB_NYC_2019_cleaned.sql.
    - Cleaned dataset contains 48,656 rows and 16 columns.
 
 ---
@@ -801,7 +801,7 @@ Cleaning-Airbnb-NYC-2019-Dataset/
 - README.txt
 - data/
   - AB_NYC_2019_raw.csv
-  - AB_NYC_2019_cleaned.csv
+  - AB_NYC_2019_cleaned.sql
 - sql_queries/
   - data_cleaning.sql
 ---
@@ -812,7 +812,7 @@ Cleaning-Airbnb-NYC-2019-Dataset/
    git clone https://github.com/Tibson-spec/Cleaning-Airbnb-NYC-2019-Dataset.git
 
 2. Review the cleaning process:
-   - SQL: Open `sql_queries/data_cleaning.sql`.
+   - SQL: [Click here]( `sql_queries/data_cleaning.sql`.)
 
 3. Access the cleaned dataset in the data folder.
 
