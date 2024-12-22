@@ -153,7 +153,7 @@ This project showcases the power of data-driven decision-making in retail. By le
 
 ---
 
-### **10. Repository Content (GitHub)**
+### **10. Repository Content (GitHub)
 - **SQL Scripts**: [Click here](https://github.com/Tibson-spec/OIBSIP-/blob/main/retail_sales_datasets%20EDA(Task%201)_.sql)
   - Data Loading
   - Cleaning
@@ -808,8 +808,7 @@ Cleaning-Airbnb-NYC-2019-Dataset/
 
 **How to Use:**
 
-1. Clone the repository:
-   git clone https://https://github.com/Tibson-spec/OIBSIP-/blob/main/Data%20Cleaning%20Task.sql.git
+1. Clone the repository:[click here](https://github.com/Tibson-spec/OIBSIP-/blob/main/Data%20Cleaning%20Task.sql.)
 
 2. Review the cleaning process:
    - SQL: [Click here](https://github.com/Tibson-spec/OIBSIP-/blob/main/Data%20Cleaning%20Task.sql)
