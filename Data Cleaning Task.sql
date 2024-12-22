@@ -132,15 +132,3 @@ WHERE reviews_per_month IS NULL
 GROUP BY reviews_per_month;
 
 
-
-
-
-
-
-
-
-
-select * from AB_NYC_2019
-
-
-
