@@ -739,122 +739,118 @@ This project demonstrates the value of RFM analysis and customer segmentation in
 
 
 
-Below is the complete documentation of your data cleaning project as it should appear in your GitHub repository:
+Here's the content without markdown formatting so you can directly copy and paste it as plain text:
 
 ---
 
-### **GitHub Repository: Cleaning-Airbnb-NYC-2019-Dataset**
 
----
 
-#### **README.md**
+# Task 3
+# Cleaning Airbnb NYC 2019 Dataset**
 
-```markdown
-# Cleaning Airbnb NYC 2019 Dataset
-
-## Description
+## **Description:**
 
 This project focuses on cleaning and transforming the Airbnb NYC 2019 dataset to ensure its quality and usability for analysis. The data cleaning process addresses key challenges such as handling missing data, removing duplicates, standardizing formats, and detecting outliers.
 
 ---
 
-## Key Concepts and Challenges
+## **Key Concepts and Challenges:**
 
-1. **Data Integrity**: Ensuring the dataset is accurate, consistent, and reliable.
-2. **Missing Data Handling**: Managing missing values by filling them with appropriate defaults.
-3. **Duplicate Removal**: Eliminating redundant rows to maintain data uniqueness.
-4. **Standardization**: Ensuring consistent formatting for seamless analysis.
-5. **Outlier Detection**: Identifying and removing extreme values that could skew results.
-
----
-
-## Steps and Tools
-
-### Tools Used:
-- **SQL Server**: For database-level cleaning and transformations.
-- **Excel Power Query**: For exploratory cleaning and validation.
-- **Python (Pandas)**: For automated data manipulation.
+1. Data Integrity: Ensuring the dataset is accurate, consistent, and reliable.
+2. Missing Data Handling: Managing missing values by filling them with appropriate defaults.
+3. Duplicate Removal: Eliminating redundant rows to maintain data uniqueness.
+4. Standardization: Ensuring consistent formatting for seamless analysis.
+5. Outlier Detection: Identifying and removing extreme values that could skew results.
 
 ---
 
-### Cleaning Process:
+## **Steps and Tools:**
 
-1. **Inspecting the Dataset**:
-   - Examined the structure of `AB_NYC_2019_raw.csv`.
+Tools Used:
+- SQL Server: For database-level cleaning and transformations.
+
+---
+
+## **Cleaning Process:**
+
+1. **Inspecting the Dataset:**
+   - Examined the structure of AB_NYC_2019_raw.csv.
    - Identified missing values, duplicates, and outliers.
 
-2. **Data Cleaning Steps**:
-   - **Missing Data**:
+2. **Data Cleaning Steps:**
+   - Missing Data:
      - Replaced missing `name` and `host_name` with "Unknown."
-     - Set `reviews_per_month` to `0` where missing.
-     - Filled missing `last_review` with `1900-01-01`.
-   - **Standardization**:
+     - Set `reviews_per_month` to mean_review_per_month where missing.
+     - Filled missing `last_review` with mean_last_review.
+   - Standardization:
      - Converted `neighbourhood` and `room_type` to uppercase for consistency.
-   - **Duplicates**:
+   - Duplicates:
      - Removed rows with duplicate `id`.
-   - **Outliers**:
-     - Removed rows where `price > 1000` or `minimum_nights > 365`.
+   - Outliers:
+     - Removed rows where `price > 1000` and cap where `minimum_nights > 365`.
 
-3. **Results**:
-   - Final dataset saved as `AB_NYC_2019_cleaned.csv`.
-   - Cleaned dataset contains **48,642 rows** and **16 columns**.
+3. **Results:**
+   - Final dataset saved as AB_NYC_2019_cleaned.csv.
+   - Cleaned dataset contains 48,656 rows and 16 columns.
 
 ---
 
-## Repository Structure
+**Repository Structure:**
 
-```plaintext
 Cleaning-Airbnb-NYC-2019-Dataset/
-├── README.md
-├── data/
-│   ├── AB_NYC_2019_raw.csv
-│   ├── AB_NYC_2019_cleaned.csv
-├── notebooks/
-│   ├── data_cleaning_process.ipynb
-├── sql_queries/
-│   ├── data_cleaning.sql
-├── scripts/
-│   ├── data_cleaning.py
-├── LICENSE
-└── .gitignore
-```
-
+- README.txt
+- data/
+  - AB_NYC_2019_raw.csv
+  - AB_NYC_2019_cleaned.csv
+- sql_queries/
+  - data_cleaning.sql
 ---
 
-## How to Use
+**How to Use:**
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/YourUsername/Cleaning-Airbnb-NYC-2019-Dataset.git
-   ```
+   git clone https://github.com/Tibson-spec/Cleaning-Airbnb-NYC-2019-Dataset.git
+
 2. Review the cleaning process:
    - SQL: Open `sql_queries/data_cleaning.sql`.
-   - Python: Run `scripts/data_cleaning.py`.
-   - Jupyter: Explore `notebooks/data_cleaning_process.ipynb`.
 
-3. Access the cleaned dataset in the `data` folder.
+3. Access the cleaned dataset in the data folder.
 
 ---
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
----
-
-#### **SQL Script: `sql_queries/data_cleaning.sql`**
+**SQL Script:**
 
 ```sql
--- Remove duplicates
-DELETE FROM AB_NYC_2019
-WHERE id NOT IN (
-    SELECT MIN(id)
-    FROM AB_NYC_2019
-    GROUP BY id
-);
+-- Identifying duplicates based on the id column
+SELECT 
+    id, COUNT(*) AS TotalCount 
+FROM 
+    AB_NYC_2019
+GROUP BY 
+    id
+HAVING 
+    COUNT(*) > 1;
 
--- Handle missing values
+--Removing Duplicates
+WITH CTE AS (
+    SELECT 
+        *, ROW_NUMBER() OVER (PARTITION BY id ORDER BY id) AS row_num
+    FROM 
+        AB_NYC_2019
+)
+DELETE FROM CTE WHERE row_num > 1;
+
+--Checking for missing values
+SELECT 
+    COUNT(*) AS Total_Rows,
+    SUM(CASE WHEN name IS NULL THEN 1 ELSE 0 END) AS Missing_Names,
+    SUM(CASE WHEN host_name IS NULL THEN 1 ELSE 0 END) AS Missing_Host_Names,
+    SUM(CASE WHEN last_review IS NULL THEN 1 ELSE 0 END) AS Missing_Last_Review,
+    SUM(CASE WHEN reviews_per_month IS NULL THEN 1 ELSE 0 END) AS Missing_Reviews
+FROM 
+    AB_NYC_2019;
+
+-- Replace NULL values in 'name' and 'host_name' with 'Unknown'
 UPDATE AB_NYC_2019
 SET name = 'Unknown'
 WHERE name IS NULL;
@@ -863,28 +859,103 @@ UPDATE AB_NYC_2019
 SET host_name = 'Unknown'
 WHERE host_name IS NULL;
 
+-- Calculate the mean (average) of reviews_per_month
+WITH mean_value AS (
+    SELECT AVG(reviews_per_month) AS mean_reviews_per_month
+    FROM AB_NYC_2019
+    WHERE reviews_per_month IS NOT NULL
+)
+-- Update the rows where reviews_per_month is NULL
 UPDATE AB_NYC_2019
-SET reviews_per_month = 0
+SET reviews_per_month = (SELECT mean_reviews_per_month FROM mean_value)
 WHERE reviews_per_month IS NULL;
 
+-- Calculate the mean date for last_review between 2011 and 2019
+WITH MeanDate AS (
+    SELECT 
+        AVG(DATEDIFF(DAY, '19000101', last_review)) AS avg_days
+    FROM AB_NYC_2019
+    WHERE last_review IS NOT NULL
+      AND last_review BETWEEN '2011-01-01' AND '2019-12-31'
+)
+SELECT DATEADD(DAY, avg_days, '19000101') AS mean_date
+FROM MeanDate;
+
+-- Update NULL values in last_review with the calculated mean date
+WITH MeanDate AS (
+    SELECT 
+        AVG(DATEDIFF(DAY, '19000101', last_review)) AS avg_days
+    FROM AB_NYC_2019
+    WHERE last_review IS NOT NULL
+      AND last_review BETWEEN '2011-01-01' AND '2019-12-31'
+)
 UPDATE AB_NYC_2019
-SET last_review = '1900-01-01'
+SET last_review = DATEADD(DAY, avg_days, '19000101')
+FROM MeanDate
 WHERE last_review IS NULL;
 
--- Standardize text columns
-UPDATE AB_NYC_2019
-SET neighbourhood = UPPER(neighbourhood);
-
+-- Convert room_type to uppercase for consistency
 UPDATE AB_NYC_2019
 SET room_type = UPPER(room_type);
 
--- Remove outliers
-DELETE FROM AB_NYC_2019
-WHERE price > 1000 OR minimum_nights > 365;
+-- Standardize the neighbourhood column
+UPDATE AB_NYC_2019
+SET neighbourhood = UPPER(neighbourhood);
 
--- Final check
-SELECT * FROM AB_NYC_2019;
+-- Standardize the Name column 
+UPDATE AB_NYC_2019
+SET name = UPPER(name);
+
+-- Standardize the Name column 
+UPDATE AB_NYC_2019
+SET host_name = UPPER(host_name);
+
+-- Convert last_review to proper date format (e.g., 'MM-DD-YYYY')
+UPDATE AB_NYC_2019
+SET last_review = CONVERT(DATE, last_review, 101)
+WHERE last_review IS NOT NULL;
+
+-- Detect outliers where price is greater than $1,000
+SELECT *
+FROM AB_NYC_2019
+WHERE price > 1000;
+
+-- Remove rows with price greater than $1,000
+DELETE FROM AB_NYC_2019
+WHERE price > 1000;
+
+-- Detect outliers where minimum_nights is greater than 365
+SELECT *
+FROM AB_NYC_2019
+WHERE minimum_nights > 365;
+
+-- Cap the 'minimum_nights' to 365 if it's greater than 365
+UPDATE AB_NYC_2019
+SET minimum_nights = 365
+WHERE minimum_nights > 365;
+
+-- Checking the data types for each column
+SELECT COLUMN_NAME, DATA_TYPE
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'AB_NYC_2019';
+
+-- Count the number of rows after all cleaning
+SELECT COUNT(*) AS row_count 
+FROM AB_NYC_2019;
+
+-- Check for NULL values in any columns (particularly those that should not have NULLs)
+SELECT last_review, COUNT(*)
+FROM AB_NYC_2019
+WHERE last_review IS NULL
+GROUP BY last_review;
+
+SELECT reviews_per_month, COUNT(*)
+FROM AB_NYC_2019
+WHERE reviews_per_month IS NULL
+GROUP BY reviews_per_month;
 ```
+
+---
 
 
 
