@@ -809,7 +809,7 @@ Cleaning-Airbnb-NYC-2019-Dataset/
 **How to Use:**
 
 1. Clone the repository:
-   git clone https://github.com/Tibson-spec/Cleaning-Airbnb-NYC-2019-Dataset.git
+   git clone https://https://github.com/Tibson-spec/OIBSIP-/blob/main/Data%20Cleaning%20Task.sql.git
 
 2. Review the cleaning process:
    - SQL: [Click here](https://github.com/Tibson-spec/OIBSIP-/blob/main/Data%20Cleaning%20Task.sql)
