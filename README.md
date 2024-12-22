@@ -732,12 +732,162 @@ Customer-Segmentation-Analysis/
 
 ---
 
-### **GitHub Repository**
-**[Retail Sales EDA Project](https://github.com/Tibson-spec/OIBSIP-)** 
-
 ---
 
 ## **Conclusion**
 This project demonstrates the value of RFM analysis and customer segmentation in understanding customer behavior and driving business growth. By implementing the recommendations provided, businesses can enhance customer retention, improve engagement, and maximize revenue potential.
+
+
+
+Below is the complete documentation of your data cleaning project as it should appear in your GitHub repository:
+
+---
+
+### **GitHub Repository: Cleaning-Airbnb-NYC-2019-Dataset**
+
+---
+
+#### **README.md**
+
+```markdown
+# Cleaning Airbnb NYC 2019 Dataset
+
+## Description
+
+This project focuses on cleaning and transforming the Airbnb NYC 2019 dataset to ensure its quality and usability for analysis. The data cleaning process addresses key challenges such as handling missing data, removing duplicates, standardizing formats, and detecting outliers.
+
+---
+
+## Key Concepts and Challenges
+
+1. **Data Integrity**: Ensuring the dataset is accurate, consistent, and reliable.
+2. **Missing Data Handling**: Managing missing values by filling them with appropriate defaults.
+3. **Duplicate Removal**: Eliminating redundant rows to maintain data uniqueness.
+4. **Standardization**: Ensuring consistent formatting for seamless analysis.
+5. **Outlier Detection**: Identifying and removing extreme values that could skew results.
+
+---
+
+## Steps and Tools
+
+### Tools Used:
+- **SQL Server**: For database-level cleaning and transformations.
+- **Excel Power Query**: For exploratory cleaning and validation.
+- **Python (Pandas)**: For automated data manipulation.
+
+---
+
+### Cleaning Process:
+
+1. **Inspecting the Dataset**:
+   - Examined the structure of `AB_NYC_2019_raw.csv`.
+   - Identified missing values, duplicates, and outliers.
+
+2. **Data Cleaning Steps**:
+   - **Missing Data**:
+     - Replaced missing `name` and `host_name` with "Unknown."
+     - Set `reviews_per_month` to `0` where missing.
+     - Filled missing `last_review` with `1900-01-01`.
+   - **Standardization**:
+     - Converted `neighbourhood` and `room_type` to uppercase for consistency.
+   - **Duplicates**:
+     - Removed rows with duplicate `id`.
+   - **Outliers**:
+     - Removed rows where `price > 1000` or `minimum_nights > 365`.
+
+3. **Results**:
+   - Final dataset saved as `AB_NYC_2019_cleaned.csv`.
+   - Cleaned dataset contains **48,642 rows** and **16 columns**.
+
+---
+
+## Repository Structure
+
+```plaintext
+Cleaning-Airbnb-NYC-2019-Dataset/
+├── README.md
+├── data/
+│   ├── AB_NYC_2019_raw.csv
+│   ├── AB_NYC_2019_cleaned.csv
+├── notebooks/
+│   ├── data_cleaning_process.ipynb
+├── sql_queries/
+│   ├── data_cleaning.sql
+├── scripts/
+│   ├── data_cleaning.py
+├── LICENSE
+└── .gitignore
+```
+
+---
+
+## How to Use
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/YourUsername/Cleaning-Airbnb-NYC-2019-Dataset.git
+   ```
+2. Review the cleaning process:
+   - SQL: Open `sql_queries/data_cleaning.sql`.
+   - Python: Run `scripts/data_cleaning.py`.
+   - Jupyter: Explore `notebooks/data_cleaning_process.ipynb`.
+
+3. Access the cleaned dataset in the `data` folder.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```
+
+---
+
+#### **SQL Script: `sql_queries/data_cleaning.sql`**
+
+```sql
+-- Remove duplicates
+DELETE FROM AB_NYC_2019
+WHERE id NOT IN (
+    SELECT MIN(id)
+    FROM AB_NYC_2019
+    GROUP BY id
+);
+
+-- Handle missing values
+UPDATE AB_NYC_2019
+SET name = 'Unknown'
+WHERE name IS NULL;
+
+UPDATE AB_NYC_2019
+SET host_name = 'Unknown'
+WHERE host_name IS NULL;
+
+UPDATE AB_NYC_2019
+SET reviews_per_month = 0
+WHERE reviews_per_month IS NULL;
+
+UPDATE AB_NYC_2019
+SET last_review = '1900-01-01'
+WHERE last_review IS NULL;
+
+-- Standardize text columns
+UPDATE AB_NYC_2019
+SET neighbourhood = UPPER(neighbourhood);
+
+UPDATE AB_NYC_2019
+SET room_type = UPPER(room_type);
+
+-- Remove outliers
+DELETE FROM AB_NYC_2019
+WHERE price > 1000 OR minimum_nights > 365;
+
+-- Final check
+SELECT * FROM AB_NYC_2019;
+```
+
+
+
+
 
 
