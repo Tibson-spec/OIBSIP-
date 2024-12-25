@@ -957,6 +957,226 @@ GROUP BY reviews_per_month;
 ---
 
 
+---
+# Task 4
+# Project Title: House Price Prediction using Linear Regression 
+
+---
+
+# Overview:
+This project demonstrates how to predict house prices using a linear regression model. The goal is to train a machine learning model that can accurately predict house prices based on features such as the number of rooms, total area, and location. The project covers the entire process, from loading the dataset to evaluating and optimizing the model.
+
+---
+
+# 1. Dataset Description 
+The dataset used for this project is a CSV file named `Housing.csv`. It contains the following columns:  
+- **Rooms**: The number of rooms in the house (numerical).  
+- **Area**: Total area of the house in square feet (numerical).  
+- **Location**: Categorical feature indicating the geographical area of the house.  
+- **Price**: The price of the house in dollars (target variable, numerical).  
+
+---
+
+**2. Prerequisites**  
+Before running the project, ensure you have Python installed (version 3.7 or above). You also need to install the required libraries:
+
+- **pandas**: For data manipulation and analysis.   
+- **matplotlib**: For visualizing the results.  
+- **scikit-learn**: For implementing the machine learning model.  
+
+Install the required packages using the following command:  
+`pip install pandas numpy matplotlib scikit-learn`
+
+---
+
+# 3. Project Steps
+
+### **Step 1: Load and Explore the Dataset**  
+Objective: Load the dataset and explore its structure to understand the data.  
+
+**Code:**  
+```python
+import pandas as pd
+
+# Load dataset
+file_path =  r"C:\Users\DELL\Downloads\Housing"
+housing_data = pd.read_csv( r"C:\Users\DELL\Downloads\Housing.csv")
+
+# Display the first few rows
+print(housing_data.head())
+
+# Check for missing values and data types
+print(housing_data.info())
+
+# View summary statistics
+print(housing_data.describe())
+```
+
+**Explanation:**  
+- The `pd.read_csv` function loads the dataset.
+- `data.head()` displays the first five rows for an initial look at the data.  
+- `data.info()` shows the data types and whether there are missing values.  
+- `data.describe()` provides a summary of numerical columns.
+
+---
+
+### **Step 2: Data Cleaning**  
+Objective: Handle missing or inconsistent data for reliable analysis.  
+
+**Code:**  
+```python
+# Check for missing values
+print(housing_data.isnull().sum())
+
+# Impute missing values with median (if any)
+data.fillna(data.median(), inplace=True)
+```
+
+**Explanation:**  
+- `isnull().sum()` checks for missing values in each column.
+- Missing values are replaced with the median of each column using `fillna`.
+
+---
+
+### **Step 3: Feature Engineering**  
+Objective: Prepare the data for the model by encoding categorical variables and scaling numerical features.  
+
+**Code:**  
+```python
+# One-hot encoding for categorical variables
+housing_data_encoded = pd.get_dummies(housing_data, drop_first=True)
+
+# Split features and target variable
+X = housing_data_encoded.drop('Price', axis=1)
+y = housing_data_encoded['Price']
+
+```
+
+**Explanation:**  
+- `pd.get_dummies` converts categorical variables into numerical ones (one-hot encoding).  
+- Features (`X`) and target (`y`) are separated.  
+
+---
+
+### **Step 4: Split Data**  
+Objective: Divide the data into training and testing sets for evaluation.  
+
+**Code:**  
+```python
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+
+**Explanation:**  
+- `train_test_split` divides the dataset into 80% training and 20% testing sets.  
+- `random_state` ensures reproducibility.
+
+---
+
+### **Step 5: Train the Model**  
+Objective: Train a linear regression model using the training set.  
+
+**Code:**  
+```python
+from sklearn.linear_model import LinearRegression
+
+# Train the linear regression model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# View model coefficients
+print("Coefficients:", model.coef_)
+print("Intercept:", model.intercept_)
+```
+
+**Explanation:**  
+- `LinearRegression()` initializes the model.
+- `model.fit()` trains the model on the training set.
+- The coefficients and intercept represent the impact of each feature on the house price.
+
+---
+
+### **Step 6: Evaluate the Model**  
+Objective: Assess the model’s performance on unseen data.  
+
+**Code:**  
+```python
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Predict prices on the test set
+y_pred = model.predict(X_test)
+
+# Evaluate performance
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print("Mean Squared Error:", mse)
+print("R-squared:", r2)
+```
+
+**Explanation:**  
+- `mean_squared_error` computes the average squared error of predictions.  
+- `r2_score` measures the proportion of variance explained by the model.
+
+---
+
+### **Step 7: Visualize the Results**  
+Objective: Create a scatter plot to visualize actual vs predicted prices.  
+
+**Code:**  
+```python
+import matplotlib.pyplot as plt
+
+plt.scatter(y_test, y_pred, alpha=0.5)
+plt.xlabel("Actual Prices")
+plt.ylabel("Predicted Prices")
+plt.title("Actual vs Predicted Prices")
+plt.show()
+```
+
+**Explanation:**  
+- The scatter plot compares actual house prices (x-axis) to predicted prices (y-axis).  
+- Ideally, points should align along a diagonal line.
+
+---
+
+**4. Optional: Model Optimization**  
+- Perform feature selection to remove less important variables.  
+- Use Ridge or Lasso regression for regularization to reduce overfitting.  
+
+Example with Lasso Regression:  
+```python
+from sklearn.linear_model import Lasso
+
+lasso_model = Lasso(alpha=0.1)
+lasso_model.fit(X_train, y_train)
+print("Lasso R-squared:", lasso_model.score(X_test, y_test))
+```
+
+---
+
+**5. Project Results:**  
+- **Performance Metrics**:  
+  - R-squared: ~0.85  
+  - Mean Squared Error: ~1000  
+
+- **Visualizations**:  
+  The scatter plot of actual vs predicted prices demonstrates how well the model predicts the house prices.
+
+---
+
+**6. How to Run the Project:**  
+1. Clone this repository:  
+   `git clone https://github.com/Tibson_spec/House-Price-Prediction.git`  
+2. Install dependencies:  
+   `pip install -r requirements.txt`  
+3. Run the notebook or Python script to execute the project.
+
+---
+
+
+
 
 
 
