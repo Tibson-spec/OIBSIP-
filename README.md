@@ -968,7 +968,7 @@ This project demonstrates how to predict house prices using a linear regression 
 
 ---
 
-# 1. Dataset Description 
+1. Dataset Description 
 The dataset used for this project is a CSV file named `Housing.csv`. It contains the following columns:  
 - **Rooms**: The number of rooms in the house (numerical).  
 - **Area**: Total area of the house in square feet (numerical).  
@@ -989,7 +989,7 @@ Install the required packages using the following command:
 
 ---
 
-# 3. Project Steps
+3. Project Steps
 
 ### **Step 1: Load and Explore the Dataset**  
 Objective: Load the dataset and explore its structure to understand the data.  
