@@ -1141,7 +1141,7 @@ plt.show()
 
 ---
 
-**4. Optional: Model Optimization**  
+# **4. Optional: Model Optimization**  
 - Perform feature selection to remove less important variables.  
 - Use Ridge or Lasso regression for regularization to reduce overfitting.  
 
