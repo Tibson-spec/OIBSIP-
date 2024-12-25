@@ -1171,7 +1171,7 @@ print("Lasso R-squared:", lasso_model.score(X_test, y_test))
    `git clone https://github.com/Tibson_spec/House-Price-Prediction.git`  
 2. Install dependencies:  
    `pip install -r requirements.txt`  
-3. Run the notebook or Python script to execute the project.
+3. [click here to Run the notebook or Python script to execute the project](https://github.com/Tibson-spec/OIBSIP-/blob/main/Housing%20data(Predictive%20model).ipynb?short_path=aea296c)
 
 ---
 
