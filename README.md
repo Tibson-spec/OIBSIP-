@@ -977,7 +977,7 @@ The dataset used for this project is a CSV file named `Housing.csv`. It contains
 
 ---
 
-**2. Prerequisites 
+2. Prerequisites 
 Before running the project, ensure you have Python installed (version 3.7 or above). You also need to install the required libraries:
 
 - **pandas**: For data manipulation and analysis.   
@@ -989,7 +989,7 @@ Install the required packages using the following command:
 
 ---
 
-**3. Project Steps
+3. Project Steps
 
 ### **Step 1: Load and Explore the Dataset**  
 Objective: Load the dataset and explore its structure to understand the data.  
