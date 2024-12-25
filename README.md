@@ -968,7 +968,7 @@ This project demonstrates how to predict house prices using a linear regression 
 
 ---
 
-**1. Dataset Description 
+# 1. Dataset Description 
 The dataset used for this project is a CSV file named `Housing.csv`. It contains the following columns:  
 - **Rooms**: The number of rooms in the house (numerical).  
 - **Area**: Total area of the house in square feet (numerical).  
@@ -977,7 +977,7 @@ The dataset used for this project is a CSV file named `Housing.csv`. It contains
 
 ---
 
-2. Prerequisites 
+# 2. Prerequisites 
 Before running the project, ensure you have Python installed (version 3.7 or above). You also need to install the required libraries:
 
 - **pandas**: For data manipulation and analysis.   
@@ -989,7 +989,7 @@ Install the required packages using the following command:
 
 ---
 
-3. Project Steps
+# 3. Project Steps
 
 ### **Step 1: Load and Explore the Dataset**  
 Objective: Load the dataset and explore its structure to understand the data.  
@@ -1156,7 +1156,7 @@ print("Lasso R-squared:", lasso_model.score(X_test, y_test))
 
 ---
 
-**5. Project Results:**  
+# **5. Project Results:**  
 - **Performance Metrics**:  
   - R-squared: ~0.85  
   - Mean Squared Error: ~1000  
@@ -1166,7 +1166,7 @@ print("Lasso R-squared:", lasso_model.score(X_test, y_test))
 
 ---
 
-**6. How to Run the Project:**  
+# **6. How to Run the Project:**  
 1. Clone this repository:  
    `git clone https://github.com/Tibson_spec/House-Price-Prediction.git`  
 2. Install dependencies:  
