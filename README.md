@@ -967,7 +967,8 @@ GROUP BY reviews_per_month;
 This project demonstrates how to predict house prices using a linear regression model. The goal is to train a machine learning model that can accurately predict house prices based on features such as the number of rooms, total area, and location. The project covers the entire process, from loading the dataset to evaluating and optimizing the model.
 
 ---
-1. Dataset Description 
+
+**1. Dataset Description 
 The dataset used for this project is a CSV file named `Housing.csv`. It contains the following columns:  
 - **Rooms**: The number of rooms in the house (numerical).  
 - **Area**: Total area of the house in square feet (numerical).  
@@ -975,7 +976,8 @@ The dataset used for this project is a CSV file named `Housing.csv`. It contains
 - **Price**: The price of the house in dollars (target variable, numerical).  
 
 ---
-2. Prerequisites**  
+
+**2. Prerequisites 
 Before running the project, ensure you have Python installed (version 3.7 or above). You also need to install the required libraries:
 
 - **pandas**: For data manipulation and analysis.   
@@ -986,7 +988,8 @@ Install the required packages using the following command:
 `pip install pandas numpy matplotlib scikit-learn`
 
 ---
-3. Project Steps
+
+**3. Project Steps
 
 ### **Step 1: Load and Explore the Dataset**  
 Objective: Load the dataset and explore its structure to understand the data.  
