@@ -1296,13 +1296,13 @@ sentiment_counts.plot(kind='bar', figsize=(8, 6), title='Sentiment Distribution'
 
 Through comprehensive data exploration and sentiment analysis, we uncover valuable insights into the Android app market:
 
-1. **Category Distribution**: Certain app categories dominate the Google Play Store, with categories such as *Games*, *Productivity*, and *Social* receiving the most apps. These insights can guide developers looking to enter specific markets.
+1. **Category Distribution**: Certain app categories dominate the Google Play Store, with categories such as *Games*, *family*, and *tools* receiving the most apps. These insights can guide developers looking to enter specific markets.
 
 2. **App Ratings and Size Trends**: There is a noticeable correlation between app size and ratings, with smaller apps generally receiving higher ratings due to better optimization. Larger apps tend to be more resource-intensive, which may affect user ratings.
 
-3. **Pricing Trends**: The majority of apps on the Google Play Store are free, but paid apps tend to be in the *Business* or *Education* categories. This insight is useful for app developers considering monetization strategies.
+3. **Pricing Trends**: The majority of apps on the Google Play Store are free, but paid apps tend to be higher in  the *family* and *game* categories. This insight is useful for app developers considering monetization strategies.
 
-4. **Sentiment Analysis**: User reviews reveal valuable information regarding the emotional tone of app usage. Positive reviews generally correlate with higher ratings, but some apps may receive high ratings despite mixed user sentiments. This highlights the importance of analyzing user reviews beyond the surface-level rating score.
+4. **Sentiment Analysis**: User reviews reveal valuable information regarding the emotional tone of app usage. Positive reviews generally correlate with higher ratings, but some apps receive high ratings despite mixed user sentiments(Neutral and negative). This highlights the importance of analyzing user reviews beyond the surface-level rating score.
 
 ---
 
