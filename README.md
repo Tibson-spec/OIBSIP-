@@ -1227,6 +1227,8 @@ To understand the diversity of the app market, the distribution of apps across d
 category_distribution = app_data.groupby('Category')['App'].count().reset_index()
 category_distribution.to_csv('category_distribution.csv', index=False)
 ```
+![Image Alt](https://github.com/Tibson-spec/OIBSIP-/blob/main/Task%205/Category%20distribution(App).png?raw=true)
+
 
 ### **Metrics Analysis**
 
